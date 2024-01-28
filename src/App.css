@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+*{
+  margin:0px;
+  padding:0px;
+  box-sizing: border-box;
+}
+body{
+  background: url('../public/TexturePattern.jpg');
+  color:white;
+  width:100%;
+  height:100vh;
+  background-color: rgb(31, 31, 31);
+  background-blend-mode: color-burn;
+  osition: relative;
+}
+:root{
+  --main-font:'Montserrat', sans-serif;
+}
+.wrapper{
+  width:70%;
+  margin:10rem auto;
+  height:fit-content;
+  display: flex;
+  border:1px solid rgb(226, 216, 216);
+  border-radius: 1.2rem;
+  box-shadow: 1px 1px 4px white;
+}
+.card-container{
+  width:50%;
+  height:70vh;
+}
+.card-container img{
+  width:100%;
+  height:100%;
+  border-radius: 1.2rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.signup-container{
+  width:50%;
+  height:70vh;
+}
+.signup-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.signup-container h1{
+  margin-top: 5rem;
+  margin-bottom: 2.5rem;
+  font-family: var(--main-font);
+}
+form{
+  width:80%;
+  margin:0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+input{
+  margin:0.5rem;
+  width:80%;
+  height:5vh;
+  outline:none;
+  border:none;
+  font-size: 1.2rem;
+  padding:0px 4px;
+}
+.btn{
+  position: relative;
+  left:-2vw;
+  display: block;
+  width:fit-content;
+  height:fit-content;
+  padding:0.4rem 1.3rem;
+  font-size: medium;
+  margin:0rem auto;
+  margin-bottom: 1rem;
+  outline: none;
+  border: 1px solid #37B5B6;
+  cursor: pointer;
+  background-color: #288be7;
+  color: white;
+}
+form p{
+  font-family: var(--main-font);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.active{
+  color:#37B5B6
+}
+
+.errorMessage{
+  position: absolute;
+  top:0;
+  right:0;
+  border:1px solid #FFBB64;
+  background-color: #FFBB64;
+  color:black;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
