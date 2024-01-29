@@ -1,10 +1,11 @@
 import React from 'react'
 import './App.css';
 import { database } from './FirebaseConfig';
-import {  signInWithEmailAndPassword } from 'firebase/auth'
+import {  signInWithEmailAndPassword  } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 const Login = () => {
+   
   const history = useNavigate();
     const isValidEmail = (email) => {
         // Regular expression to check if the email has the domain iitg.ac.in
@@ -20,14 +21,23 @@ const Login = () => {
             return;
         }
 
-        signInWithEmailAndPassword(database, email, password).then(data => {
-            console.log(data, 'authData');
-            history('/home')
-
-        }).catch(err => {
-            alert(err.code);
-
+        signInWithEmailAndPassword(database, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+  
+          // Check if the user's email is verified
+          if (user.emailVerified) {
+            console.log('Email is verified');
+            console.log('User:', user);
+            history('/home');
+          } else {
+            // If email is not verified, display an alert or take appropriate action
+            alert('Email is not verified. Please verify your email before logging in.');
+          }
         })
+        .catch((err) => {
+          alert(err.code);
+        });
 
     }
   return (

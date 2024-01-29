@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { database } from './FirebaseConfig';
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword , sendEmailVerification} from 'firebase/auth'
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 const Signup = () => {
@@ -28,8 +28,11 @@ const Signup = () => {
         }
 
         createUserWithEmailAndPassword(database, email, password).then(data => {
+            sendEmailVerification(database.currentUser).then(()=>{
+                alert('Email verification is sent!')
+            })
             console.log(data, 'authData');
-            history('/home')
+            history('/login')
 
         }).catch(err => {
            // alert(err.code);
