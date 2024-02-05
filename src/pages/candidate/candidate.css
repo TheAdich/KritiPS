@@ -1,0 +1,226 @@
+*{
+    padding:0;
+    box-sizing: border-box;
+    margin: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Plus+Jakarta+Sans:wght@200&display=swap');
+
+.dashbord_wrapper{
+    width:100%;
+    height:100vh;
+    overflow-x: hidden;
+    display: flex;
+}
+
+.dashboard{
+    width:20%;
+    background-color: #F3F3E9;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.election_header_icon{
+    display: flex;
+    align-items: center;
+    height:5%;
+    color: #FF961C;
+    margin:4vh 0px;
+}
+
+.election_header_icon>img{
+    margin-right: 1vw;
+}
+
+.dashboard_navbar{
+    display: flex;
+    flex-direction: column;
+    height:50%;
+}
+
+.dashboard_navlinks{
+    cursor: pointer;
+    margin:2vh;
+    font-weight: 900;
+}
+
+.dashboard_navlinks:hover{
+    color:#FF961C
+}
+
+.logout_section{
+    position: relative;
+    bottom:5vh;
+}
+
+.logout_section>h4{
+    color:#FF1300;
+    cursor: pointer;
+}
+
+.candidate_section{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-left: 3vw;
+    width:80%;
+    height:fit-content;
+    padding-bottom: 4rem;
+}
+
+.username_name{
+    margin-top: 5vh;
+}
+
+.prompt {
+    margin-top: 5vh;
+}
+
+.form_section{
+    margin-top: 10vh;
+    height:80%;
+    display: flex;
+    justify-content: center;
+}
+
+.add_btn{
+    align-self: flex-start;
+    font-size: 1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    height:fit-content;
+    width:fit-content;
+    padding:0.8rem 1rem;
+    background-color: #27B158;
+    color:white;
+    outline: none;
+    border:none;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+
+
+.btn_section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add_btn:hover{
+    opacity: 0.9;
+}
+
+.candidate_form{
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.three_form_wrapper{
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+}
+
+.three_form_wrapper fieldset{
+    width:30%;
+}
+
+fieldset{
+    border-radius: 10px;
+}
+
+#candidatePoints {
+    resize: none;
+    outline: none;
+    border: none;
+}
+
+#dropdown{
+    border:none;
+    margin-top: 0.5vw;
+    outline: none;
+    width:80%;
+    font-size: 1vw;
+}
+
+#dropdown option{
+    font-size: 1rem;
+}
+
+#course{
+    border:none;
+    margin-top: 0.5vw;
+    outline: none;
+    width:80%;
+    font-size: 1vw;
+}
+
+#course option{
+    font-size: 1rem;
+}
+
+legend{
+    margin-left: 1vw;
+}
+fieldset{
+    margin: 1vh 0px;
+}
+.name_section{
+    width:100%;
+    border-radius: 10px;
+}
+
+.agenda{
+    font-size: 1.2vw;
+    margin-bottom: 2rem;
+}
+.agenda textarea{
+    font-size: 1vw;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+#save{
+    font-size: 1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    height:fit-content;
+    width:fit-content;
+    padding:0.7rem 1.2rem;
+    background-color: #27B158;
+    color:white;
+    outline: none;
+    border:none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 5vw;
+}
+
+.formOutput{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#confirm_details{
+    margin:2vh 0vw;
+    font-size: 1.2vw;
+    font-weight: 700;
+}
+
+.formoutput_cand{
+    margin-left: 5vw;
+    margin-bottom: 5vh;
+}
+
+.formoutput_cand h4{
+    font-size: 1.3vw;
+    color: grey;
+    margin-bottom: 0.4vw;
+}
+.formoutput_cand p{
+    font-size: 1.1vw;
+    color:black;
+    font-weight: bold;
+    white-space: pre-line;
+    white-space: pre-wrap;
+}

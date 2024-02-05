@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { database } from './FirebaseConfig';
+import { database } from '../FirebaseConfig';
 import { createUserWithEmailAndPassword , sendEmailVerification} from 'firebase/auth'
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
@@ -68,8 +68,5 @@ const Signup = () => {
 
     )
 }
-
-
-
 
 export default Signup;

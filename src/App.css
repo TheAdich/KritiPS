@@ -5,13 +5,12 @@
   box-sizing: border-box;
 }
 body{
-  background: url('../public/TexturePattern.jpg');
-  color:white;
+ 
+  color:black;
   width:100%;
   height:100vh;
-  background-color: rgb(31, 31, 31);
-  background-blend-mode: color-burn;
-  osition: relative;
+  background-color: white
+  
 }
 :root{
   --main-font:'Montserrat', sans-serif;
@@ -100,3 +99,4 @@ form p{
   color:black;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+

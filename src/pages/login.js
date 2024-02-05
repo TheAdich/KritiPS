@@ -1,6 +1,6 @@
 import React from 'react'
-import './App.css';
-import { database } from './FirebaseConfig';
+import '../App.css';
+import { database } from '../FirebaseConfig';
 import {  signInWithEmailAndPassword  } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
@@ -55,6 +55,7 @@ const Login = () => {
                     </form>
                 </div>
             </div>
+           
   )
 }
 
