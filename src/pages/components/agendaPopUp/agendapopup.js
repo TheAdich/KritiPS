@@ -3,7 +3,7 @@ import './agendapopup.css';
 const AgendaPopUp = () => {
   return (
     <>
-     <div className="body-2">
+     <div className="bod-2">
     <div className="agenda-head-wrapper">
         <div id="agenda-img-cantainer">
             <img src='pics2.jpg' alt=""/>

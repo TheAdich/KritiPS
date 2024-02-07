@@ -10,7 +10,7 @@ const Voterpopup = () => {
 
     return(
         <>
-        <div className='body-1'>
+        <div className='bod-1'>
         <div className="outer-wrapper">
         <h1 id="page7-heading">Confirm your Votes</h1>
         <div className="candidates-wrapper">

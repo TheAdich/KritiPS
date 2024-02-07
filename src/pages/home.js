@@ -24,7 +24,7 @@ const  Home=()=> {
     }
 
     return (
-        <div className='body-1'>
+        <div className='bod-1'>
 
             <div className="section" id="left-section">
                 <nav>

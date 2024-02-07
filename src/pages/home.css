@@ -4,18 +4,13 @@
     padding: 0px;
     margin: 0px;
 }
-.body-1{
+.bod-1{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
+
 
 /* page-1 */
 .section{
