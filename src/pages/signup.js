@@ -1,9 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect } from 'react'
 import { database } from '../FirebaseConfig';
 import { createUserWithEmailAndPassword , sendEmailVerification} from 'firebase/auth'
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 const Signup = () => {
+    const location = useLocation();
+    const [userStatus, setUserStatus] = useState(0);
+
+    useEffect(() => {
+        if (location.state && location.state.userStatus) {
+            setUserStatus(location.state.userStatus);
+        }
+    }, [location.state]);
+   
+ 
     const [message , setmessage]=useState();
     const[err,seterr]=useState(false);
     const history = useNavigate();
@@ -32,7 +43,7 @@ const Signup = () => {
                 alert('Email verification is sent!')
             })
             console.log(data, 'authData');
-            history('/login')
+            history('/login', { state: { userStatus: userStatus } });
 
         }).catch(err => {
            // alert(err.code);

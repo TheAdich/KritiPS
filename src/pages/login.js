@@ -1,10 +1,20 @@
-import React from 'react'
+import React ,{useState , useEffect} from 'react'
 import '../App.css';
 import { database } from '../FirebaseConfig';
 import {  signInWithEmailAndPassword  } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 const Login = () => {
+  const location = useLocation();
+    const [userStatus, setUserStatus] = useState(0);
+
+    useEffect(() => {
+        if (location.state && location.state.userStatus) {
+            setUserStatus(location.state.userStatus);
+        }
+    }, [location.state]);
+    console.log(userStatus);
    
   const history = useNavigate();
     const isValidEmail = (email) => {

@@ -13,17 +13,17 @@
 
 
 /* page-1 */
-.section{
+.home_section{
     width: 50vw;
     margin: 0px;
     height: 100vh;
 }
 
-#left-section{
+#home_left-section{
     background-color: #F3F3E9;
     padding:3% 0px 0px 10%;
 }
-#right-section{
+#home_right-section{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,7 +39,7 @@ li{
     background-color: #fff;
     margin: 0px 5px 0px 5px;
 }
-.heading{
+.home_heading{
     font-size: 3.5rem;
     font-weight: bold;
     font-family: 'Times New Roman', Times, serif;
@@ -48,27 +48,27 @@ li{
     flex-direction: column;
     justify-content: center;
 }
-#Btn{
+#home_Btn{
     background: #000;
     color: #fff;
     font-size: 1.3rem;
     padding: 10px 10px 10px 10px;
     border-radius: 15px;
 }
-.voting-status{
+.home_voting-status{
     text-align: center;
     font-size: 1.1rem;
     font-family: 'Roboto Condensed', sans-serif;
     color: white;
 }
-#status{
+#home_status{
     font-size: 3rem;
     font-weight: bold;
 }
-#Voting-img{
+#home_Voting-img{
     width: 400px;
 }
-.psuedo-btn{
+.home_psuedo-btn{
     border: none;
     color: #51584D;
     background-color: transparent;
@@ -76,26 +76,26 @@ li{
     padding:5px 10px 5px 10px;
 }
 @media screen and (max-width:800px) {
-    .body-1{
+    .bod-1{
         flex-direction: column;
     }
-    .section{
+    .home_section{
         width: 100vw;
     }
     #left-section{
         height: 40vh;
     }
-    .heading{
+    .home_heading{
         height: 20vh;
         font-size: 2.2rem;
     }
-    #Btn{
+    #home_Btn{
         font-size: 1rem;
     }
-    #Voting-img{
+    #home_Voting-img{
         width: 200px;
     }
-    #right-section{
+    #home_right-section{
         flex-direction: row;
         height: 60vh;
         padding-top: 5vh;
