@@ -47,6 +47,7 @@ const Voter = () => {
                 setCandidates(candidatesList);
             }
         });
+
     }, []);
 
 
@@ -111,7 +112,7 @@ const Voter = () => {
                             <button className="btns btn_vote" onClick={()=>handleVoteClick(candidate)}>Vote</button>
                         </div>
                     ))}
-                    {showAgendaPopup && <Agenda agenda={agenda} onClose={handleCloseAgenda} />}
+                    {showAgendaPopup && <Agenda  agenda={agenda} onClose={handleCloseAgenda} />}
                 </div>
                 <div className="voting_section_right">
                     <div className="not_vote">
