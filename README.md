@@ -13,10 +13,10 @@
 
 ## 📃Pages
 
--Home Page
+- Home Page
  - About 
  - Election Page
--Voter Side
+- Voter Side
   - Sign in/ Sign Up
   - Wallet Connection
   - Voter Dashboard
