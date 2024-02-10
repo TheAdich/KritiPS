@@ -41,7 +41,8 @@
 - Expressjs
 - Solidity
 - Firebase
-- Django
+- Python
+- Streamlit
   
 
 ## Getting Started
