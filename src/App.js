@@ -9,6 +9,7 @@ import VoteSummary from './pages/components/voterpopup/voteSummary';
 import AgendaPopUp from './pages/components/agendaPopUp/agendapopup';
 import Voter from './pages/voter/voter';
 import Chatbot from './pages/Chatbot';
+import Wallet from './pages/getToken';
 function App() {
   return (
     <BrowserRouter>
@@ -22,6 +23,7 @@ function App() {
             <Route path='/agenda' element={<AgendaPopUp/>}></Route>
             <Route path='/voter' element={<Voter/>}></Route>
             <Route path='/chatbot' element={<Chatbot/>}></Route>
+            <Route  path='/wallet' element={<Wallet/>}></Route>
           </Routes>
       </div>
     </BrowserRouter>
