@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect} from 'react'
+import {set, ref, push } from 'firebase/database';
+import {database} from '../../FirebaseConfig';
 import './candidate.css'
 const Candidate = () => {
   const [btnstyle , setBtnstyle]=useState({});
@@ -22,12 +24,39 @@ const Candidate = () => {
     agenda:'Paisa hi paisa hoga',
   })
 
-  const handleSubmit=(e)=>{
+  useEffect(() => {
+    localStorage.setItem('formdata', JSON.stringify(formdata));
+  }, [formdata]);
+
+
+
+
+ 
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("formdata",formdata)
-   setFormStyle({display:'none'});
-    setDatastyle({display:'flex'});
-  }
+    try {
+      const candidatesRef = ref(database, 'candidates');
+      const newCandidateRef = push(candidatesRef);
+      
+      const formData = {
+        name: formdata.name,
+        year: formdata.year,
+        position: formdata.position,
+        course: formdata.course,
+        agenda: formdata.agenda,
+      };
+      
+      set(newCandidateRef, formData);
+      
+      console.log("Document written with ID: ", newCandidateRef.key);
+      setFormStyle({ display: 'none' });
+      setDatastyle({ display: 'flex' });
+    } catch (error) {
+      console.error("Error adding document: ", error);
+    }
+  };
+
 
   const handleChange=(e)=>{
    console.log(e.target.name , e.target.value)
