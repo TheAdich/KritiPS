@@ -1,29 +1,16 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { getDatabase, ref, onValue,set } from "firebase/database";
 import './voter.css';
+import { v4 as uuidv4 } from 'uuid';
 
-const lists = [
-    {
-        id: '0',
-        name: 'Raj',
-        agenda: 'slfhkahfnlewnf'
-    },
-    {
-        id: '1',
-        name: 'Raj2',
-        agenda: 'slfhkahfzdzfsgsfgnlewnf'
-    },
-    {
-        id: '2',
-        name: 'Raj3',
-        agenda: 'slfhka;dfjglkfdghfnlewnf'
-    },
-    {
-        id: '3',
-        name: 'Raj4',
-        agenda: 'slfhkadkfkgjldkfjghfnlewnf'
-    },
-]
+
+
+
+
+    
+
+
 
 const Agenda = ({ agenda, onClose }) => {
     return (
@@ -43,6 +30,28 @@ const Voter = () => {
     const [agenda, setAgenda] = useState(null);
     const [showAgendaPopup, setShowAgendaPopup] = useState(false);
     const [voted, setVoted] = useState(false);
+    const [candidates, setCandidates] = useState([]);
+    const [selectedPosition, setSelectedPosition] = useState('General Secretary');
+    const [votedCandidate, setVotedCandidate] = useState(null);
+
+    
+
+
+    useEffect(() => {
+        const database = getDatabase();
+        const candidatesRef = ref(database, 'candidates');
+        onValue(candidatesRef, (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                const candidatesList = Object.values(data);
+                setCandidates(candidatesList);
+            }
+        });
+    }, []);
+
+
+
+
 
     const handleAgendaClick = (agenda) => {
         setAgenda(agenda);
@@ -53,14 +62,30 @@ const Voter = () => {
         setShowAgendaPopup(false);
     };
 
-    const handleVoteClick = () => {
+    const handleVoteClick = (candidate) => {
         alert("You have successfully voted!");
         setVoted(true);
+        const database = getDatabase();
+        const voterId=uuidv4();
+        const votedCandidateRef = ref(database, `votedCandidates/${voterId}`);
+        set(votedCandidateRef, candidate).then(() => {
+            alert("You have successfully voted!");
+            setVoted(true);
+        }).catch((error) => {
+            console.error("Error voting:", error);
+        });
     };
     const history = useNavigate();
     const showRegisterPage=(userStatus)=>{
         history('/Chatbot', { state: { userStatus: userStatus } });
     }
+    const showRegisterPage2=(userStatus)=>{
+        history('/voter_popUp', { state: { userStatus: userStatus } })};
+
+    const filterCandidatesByPosition = () => {
+        return candidates.filter(candidate => candidate.position === selectedPosition);
+    };
+
     return (
         <div className="voter_wrapper">
             <div className="voter_navbar">
@@ -69,21 +94,21 @@ const Voter = () => {
                         <h3>Post Name</h3>
                     </div>
                     <div className="voter_post_links">
-                        <button>Genral Seceratry</button>
-                        <button>Maintainence Seceratry</button>
-                        <button>Literary Seceratry</button>
-                        <button>Cultural Seceratry</button>
-                        <button>Technical Seceratry</button>
+                        <button onClick={() => setSelectedPosition('General Secretary')}>General Seceratry</button>
+                        <button onClick={() => setSelectedPosition('Maintenance Secretary')}>Maintainence Seceratry</button>
+                        <button onClick={() => setSelectedPosition('Literary Secretary')}>Literary Seceratry</button>
+                        <button onClick={() => setSelectedPosition('Cultural Secretary')}>Cultural Seceratry</button>
+                        <button onClick={() => setSelectedPosition('Technical Secretary')}>Technical Seceratry</button>
                     </div>
             </div>
             <div className="left_right">
                 <div className="voter_section">
-                    {lists.map((list) => (
-                        <div className="single_candidate_section" key={list.id}>
+                {filterCandidatesByPosition().map((candidate) => (
+                        <div className="single_candidate_section" key={candidate.id}>
                             <img className="cand_img" src='Person.png'></img>
-                                    <h1 className="cand_name">{list.name}</h1>
-                            <button className="btns btn_agenda" onClick={() => handleAgendaClick(list.agenda)}>View Agenda</button>
-                            <button className="btns btn_vote" onClick={handleVoteClick}>Vote</button>
+                            <h1 className="cand_name">{candidate.name}</h1>
+                            <button className="btns btn_agenda" onClick={() => handleAgendaClick(candidate.agenda)}>View Agenda</button>
+                            <button className="btns btn_vote" onClick={()=>handleVoteClick(candidate)}>Vote</button>
                         </div>
                     ))}
                     {showAgendaPopup && <Agenda agenda={agenda} onClose={handleCloseAgenda} />}
@@ -93,7 +118,9 @@ const Voter = () => {
                     {voted ? (
                         <React.Fragment>
                             <h1>You have successfully voted!</h1>
-                            <p>Your chosen candidate will appear here.</p>
+                            <div style={{display:'flex',justifyContent:'center',alignItems:'center',marginTop:'2vw'}}>
+                            <button className="btns btn_vote" onClick={()=>showRegisterPage2()} style={{backgroundColor:'#FFBB25'}}> Final Vote</button>
+                            </div>
                         </React.Fragment>
                     ) : (
                         <React.Fragment>

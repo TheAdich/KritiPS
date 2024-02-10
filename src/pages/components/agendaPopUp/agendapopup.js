@@ -1,12 +1,13 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { getDatabase, ref, onValue } from 'firebase/database';
+import { useNavigate } from "react-router-dom";
 import './agendapopup.css';
 const AgendaPopUp = () => {
 
-
+    
     const [candidates, setCandidates] = useState([]);
-
+    const history = useNavigate();
     useEffect(() => {
         const database = getDatabase();
         const candidatesRef = ref(database, 'candidates');
@@ -20,10 +21,13 @@ const AgendaPopUp = () => {
               setCandidates(candidatesList);
             }
           });
+          
           return () => {
             unsubscribe();
           };
         }, []);
+        const showRegisterPage=(userStatus)=>{
+            history('/voter', { state: { userStatus: userStatus } })};
 
   return (
      <div className="bod-2" style={{display:'flex',flexDirection:'column'}}>
@@ -56,7 +60,7 @@ const AgendaPopUp = () => {
         </div>
         </div>
         <div id="agenda-btn-wrapper">
-        <button id="agenda-vote-btn">
+        <button id="agenda-vote-btn" onClick={()=>showRegisterPage()}>
             Vote
         </button>
     </div>
@@ -66,6 +70,7 @@ const AgendaPopUp = () => {
     </div>
   )
 }
+
 
 
 export default AgendaPopUp;

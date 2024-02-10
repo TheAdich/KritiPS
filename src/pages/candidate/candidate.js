@@ -109,9 +109,11 @@ const Candidate = () => {
                 <label for='dropdown'>Apply for: </label>
                 <select id='dropdown'  required  name='position' onChange={handleChange}>
                   <option value=''>Select</option>
-                  <option value='option1'>option 1</option>
-                  <option value='option2'>option 2</option>
-                  <option value='option3'>option 3</option>
+                  <option value='General Secretary'>General Secretary</option>
+                  <option value='Maintenance Secretary'>Maintenance Secretary</option>
+                  <option value='Literary Secretary'>Literary Secretary</option>
+                  <option value='Cultural Secretary'>Cultural Secretary</option>
+                  <option value='Technical Secretary'>Technical Secretary</option>
                 </select>
               </fieldset>
               <fieldset className='course_enrolled'>
