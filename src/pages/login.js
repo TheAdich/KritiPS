@@ -61,7 +61,7 @@ const Login = () => {
                         <input name="email" placeholder='Enter Your email'></input><br></br>
                         <input name="password" type="password" placeholder='Enter your password'></input><br></br>
                         <button className='btn'>SignIn</button>
-                        <p>Do not have an account ? <NavLink to="/" className="active">SignUp</NavLink></p>
+                        <p>Do not have an account ? <NavLink to="/wallet" className="active">Get Wallet</NavLink></p>
                     </form>
                 </div>
             </div>
