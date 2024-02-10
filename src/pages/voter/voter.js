@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './voter.css';
 
 const lists = [
@@ -56,7 +57,10 @@ const Voter = () => {
         alert("You have successfully voted!");
         setVoted(true);
     };
-
+    const history = useNavigate();
+    const showRegisterPage=(userStatus)=>{
+        history('/Chatbot', { state: { userStatus: userStatus } });
+    }
     return (
         <div className="voter_wrapper">
             <div className="voter_navbar">
@@ -94,11 +98,11 @@ const Voter = () => {
                     ) : (
                         <React.Fragment>
                             <h1>You haven't voted for any candidate yet!</h1>
-                            <p>Vote for the candidate of your choice after going through the agendas.<br/> Your chosen candidate will appear here.</p>
+                            <p>Vote for the candidate of your choice after going through the agendas.<br/> Your chosen candidate will be your vote.</p>
                         </React.Fragment>
                     )}
                     <div style={{display:'flex',justifyContent:'center',alignItems:'center',marginTop:'2vw'}}>
-                    <button style={{borderRadius:'3vw',padding:'1vw',backgroundColor:'#eaff7b',cursor:'pointer',color:'black',fontSize:'30px'}}>  Chat with AI <img  src='ai.png' style={{height:'30px',width:'30px'}}></img></button>
+                    <button style={{borderRadius:'3vw',padding:'1vw',backgroundColor:'#eaff7b',cursor:'pointer',color:'black',fontSize:'30px'}} onClick={()=>showRegisterPage()}>  Chat with AI <img  src='ai.png' style={{height:'30px',width:'30px'}}></img></button>
                     </div>
                     </div>
                 </div>
