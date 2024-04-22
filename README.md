@@ -7,7 +7,7 @@
 - Fair and Anonymous voting
 - Privacy centric
 - Blockchain usage for data storage
-- Using digital identity in voter system
+- Using digital identity in voting
 - Using GenAi in generating descriptive statistics and cross-tabs
 
 
